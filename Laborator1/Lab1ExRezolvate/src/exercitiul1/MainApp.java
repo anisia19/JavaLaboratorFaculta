@@ -20,5 +20,6 @@ public class MainApp {
         }
         System.out.println("Perimetrul dreptunghiului este:" + 2*(l + L));
         System.out.println("Aria dreptungiului este: "+ (L * l));
+        scanner.close();
     }
 }
