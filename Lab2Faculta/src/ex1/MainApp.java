@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class MainApp {
     public static void main(String[] args) {
         String[] judete = new String[0];
-        String dateIn = "D:\\lucru_java_intellij\\laborator2Faculta\\Lab2Faculta\\src\\ex1\\judete_in.txt";
+        String dateIn = "src/ex1/judete_in.txt";
         try{
             BufferedReader fluxIn = new BufferedReader(new FileReader(dateIn));
             StringBuilder continut = new StringBuilder();
@@ -40,5 +40,6 @@ public class MainApp {
         }
         int poz = Arrays.binarySearch(judete, judetInput );
         System.out.println(poz >= 0?"Gasit pe pozitia " + poz: "Nu se gaseste!");
+        scanner.close();
     }
 }
