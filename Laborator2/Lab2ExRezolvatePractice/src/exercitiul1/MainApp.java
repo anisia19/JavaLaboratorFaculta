@@ -20,6 +20,7 @@ public class MainApp {
             judete = continut.toString().split(",");
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1);
         }
 
         for (int i = 0; i < judete.length; i++) {
@@ -28,11 +29,12 @@ public class MainApp {
         Arrays.sort(judete);
         System.out.println("Ordonarea alfabetica a judetelor este: ");
         for(int i = 0; i < judete.length; i++){
-            System.out.println(" " + judete[i].trim());
+            System.out.println(" " + judete[i]);
         }
         System.out.print("Introdu un judet pentru a afla pozitia lui: ");
         Scanner scanner = new Scanner(System.in);
         String judet_citit = scanner.nextLine();
+        scanner.nextLine();
         scanner.close();
         int poz = Arrays.binarySearch(judete, judet_citit);
         System.out.println(poz >= 0?"Gasit pe pozitia " + poz:"Nu se gaseste!");

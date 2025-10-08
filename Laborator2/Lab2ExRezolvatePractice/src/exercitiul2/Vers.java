@@ -9,7 +9,6 @@ public class Vers {
     }
     public Vers() {
     }
-
     public String getVers() {
         return vers;
     }
@@ -41,9 +40,9 @@ public class Vers {
         return false;
     }
     public void randomNumber(){
-        double randomNum = Math.random(); // generează un număr între 0.0 și 1.0
+        double randomNum = Math.random();
         if (randomNum < 0.1) {
-            vers = vers.toUpperCase(); // face tot stringul uppercase
+            vers = vers.toUpperCase();
         }
     }
 }

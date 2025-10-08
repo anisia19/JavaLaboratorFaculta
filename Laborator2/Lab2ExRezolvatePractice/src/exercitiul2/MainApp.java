@@ -15,7 +15,6 @@ public class MainApp {
              BufferedWriter flux_out = new BufferedWriter(new FileWriter(date_out))) {
 
             String linie;
-            String vocale = "aeiou";
             while ((linie = flux_in.readLine()) != null) {
                 Vers vers = new Vers(linie);
                 int nr_cuvinte = vers.nrCuvinte();
@@ -30,7 +29,7 @@ public class MainApp {
                 flux_out.newLine();
             }
 
-            System.out.println("Fișierul cantec_out.txt a fost generat cu succes!");
+            System.out.println("Fisierul cantec_out.txt a fost generat cu succes!");
 
         } catch (IOException e) {
             e.printStackTrace();

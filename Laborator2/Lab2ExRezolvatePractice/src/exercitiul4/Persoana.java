@@ -41,7 +41,19 @@ public class Persoana {
         char prima_cifra = cnp.charAt(0);
         if (prima_cifra != '1' && prima_cifra != '2' && prima_cifra != '5' && prima_cifra != '6')
             return false;
-        return true;
+
+        int[] control = {2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9};
+        int suma = 0;
+        for (int i = 0; i < 12; i++) {
+            int cifra = Character.getNumericValue(cnp.charAt(i));
+            suma += cifra * control[i];
+        }
+        int rest = suma % 11;
+        int cifra_control = (rest == 10) ? 1 : rest;
+
+        int ultima_cifra = Character.getNumericValue(cnp.charAt(12));
+
+        return cifra_control == ultima_cifra;
     }
 
     public long getVarsta() {
@@ -51,18 +63,18 @@ public class Persoana {
         int zi = Integer.parseInt(cnp.substring(5, 7));
 
         char prima = cnp.charAt(0);
-        int anulComplet;
+        int anul_complet;
         if (prima == '1' || prima == '2') {
-            anulComplet = 1900 + an;
+            anul_complet = 1900 + an;
         } else if (prima == '5' || prima == '6') {
-            anulComplet = 2000 + an;
+            anul_complet = 2000 + an;
         } else {
-            anulComplet = 1800 + an;
+            anul_complet = 1800 + an;
         }
 
-        LocalDate dataNasterii = LocalDate.of(anulComplet, luna, zi);
+        LocalDate data_nasterii = LocalDate.of(anul_complet, luna, zi);
         LocalDate azi = LocalDate.now();
-        long varsta = ChronoUnit.YEARS.between(dataNasterii, azi);
+        long varsta = ChronoUnit.YEARS.between(data_nasterii, azi);
         return varsta;
     }
     @Override
