@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class MainApp {
     public static void main(String[] args) {
-        String date_in = "ex2/cantec_in.txt";
-        String date_out = "ex2/cantec_out.txt";
+        String date_in = "src/ex2/cantec_in.txt";
+        String date_out = "src/ex2/cantec_out.txt";
         try (BufferedReader flux_in = new BufferedReader(new FileReader(date_in));
              BufferedWriter flux_out = new BufferedWriter(new FileWriter(date_out))) {
 

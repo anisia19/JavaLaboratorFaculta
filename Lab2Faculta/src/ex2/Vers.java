@@ -34,6 +34,7 @@ public class Vers {
         }
         return nr_vocale;
     }
+    //nu hardcodat
     public boolean addStelutza(){
         if(vers.endsWith("say?"))
             return true;
@@ -41,7 +42,7 @@ public class Vers {
     }
     public void randomNumber(){
         double randomNum = Math.random();
-        if (randomNum < 0.1) {
+        if (randomNum < 0.5) {
             vers = vers.toUpperCase();
         }
     }
