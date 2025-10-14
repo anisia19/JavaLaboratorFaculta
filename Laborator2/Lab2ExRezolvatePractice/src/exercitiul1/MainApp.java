@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
-        String[] judete = new String[0];
+        String[] judete = null;
         String date_in = "C:\\Users\\gheor\\Desktop\\JavaLaboratorFaculta\\Laborator2\\Lab2ExRezolvatePractice\\src\\exercitiul1\\judete_in.txt";
         try {
             BufferedReader flux_in = new BufferedReader(new FileReader(date_in));

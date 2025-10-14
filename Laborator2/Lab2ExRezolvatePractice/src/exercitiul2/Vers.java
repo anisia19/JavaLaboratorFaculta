@@ -27,8 +27,8 @@ public class Vers {
     public int cautaVocale(){
         String vocale = "aeiouAEIOU";
         int nr_vocale = 0;
-        for (char c : vocale.toCharArray()){
-            if(vers.contains(String.valueOf(c))){
+        for (char c : vers.toCharArray()){
+            if(vocale.indexOf(c) != -1){
                 nr_vocale++;
             }
         }
