@@ -34,14 +34,14 @@ public class Vers {
         }
         return nr_vocale;
     }
-    public boolean addStelutza(){
-       if(vers.endsWith("say?"))
+    public boolean addStelutza(String grup){
+       if(vers.endsWith(grup))
                 return true;
         return false;
     }
     public void randomNumber(){
         double randomNum = Math.random();
-        if (randomNum < 0.1) {
+        if (randomNum < 0.5) {
             vers = vers.toUpperCase();
         }
     }
