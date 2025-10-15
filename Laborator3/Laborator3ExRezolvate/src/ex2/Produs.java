@@ -1,6 +1,11 @@
-﻿package ex2;
+package ex2;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Produs {
     private String denumireProdus;
@@ -49,9 +54,32 @@ public class Produs {
     @Override
     public String toString(){
         return "Detalii produs:" +
-                "denumire='" + denumireProdus + '\'' +
-                ", pret=" + pretProdus +
-                ", cantitate=" + cantitateProdus +
-                ", dataExpirarii=" + dataExpirarii;
+                "denumire : " + denumireProdus  +
+                ", pret = " + pretProdus +
+                ", cantitate = " + cantitateProdus +
+                ", data expirarii :" + dataExpirarii;
     }
+    public static void afiseazaProduse(List<Produs> listaProduse){
+        if (listaProduse == null || listaProduse.isEmpty()){
+            System.out.println("Nu sunt produse!");
+            return;
+        }
+        for (Produs p: listaProduse){
+            System.out.println(p);
+        }
+    }
+
+  /*  public static void afisProduseExpirate(List<Produs> listaProduse){
+        LocalDate dt1 =  LocalDate.now();
+        LocalDate dataExpirarii;
+        for (Produs p: listaProduse){
+            dataExpirarii = p.getDataExpirarii().toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+            if(dataExpirarii.isBefore(dt1)){
+                listaProduse.remove();
+            }
+        }
+    }*/
+
 }
