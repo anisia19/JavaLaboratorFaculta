@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
-        String date_in = "C:\\Users\\gheor\\Desktop\\JavaLaboratorFaculta\\Laborator2\\Lab2ExRezolvatePractice\\src\\exercitiul2\\cantec_in.txt";
-        String date_out = "C:\\Users\\gheor\\Desktop\\JavaLaboratorFaculta\\Laborator2\\Lab2ExRezolvatePractice\\src\\exercitiul2\\cantec_out.txt";
+        String date_in = "src/exercitiul2/cantec_in.txt";
+        String date_out = "src/exercitiul2/cantec_out.txt";
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introdu grupul de litere: ");
         String grupLitere = scanner.nextLine();
