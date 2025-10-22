@@ -30,6 +30,7 @@ public class MainApp {
             System.out.println("Nu exista echipamentu de tipu: " + tip);
         }
     }
+
     /*
     public static void afisareImprimante(List<EchipamentElectronic> electronics){
         for (EchipamentElectronic e : electronics){
@@ -54,6 +55,8 @@ public class MainApp {
         }
     }
 */
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<EchipamentElectronic> electronice = new ArrayList<>();
