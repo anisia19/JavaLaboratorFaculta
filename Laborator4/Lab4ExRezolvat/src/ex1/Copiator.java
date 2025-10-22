@@ -25,8 +25,8 @@ public class Copiator extends EchipamentElectronic{
 
     @Override
     public String toFile() {
-        return "copiator," + getDenumire() + "," + getNr_inv() + "," + getPret() + "," + getZona_mag() + "," +
-                getSituatie() + "," + p_ton + "," + formatCopiere;
+        return getDenumire() + ";" + getNr_inv() + ";" + getPret() + ";" + getZona_mag() + ";" +
+                getSituatie() + ";" + "copiator" + ";" + p_ton + ";" + formatCopiere;
     }
 
 }

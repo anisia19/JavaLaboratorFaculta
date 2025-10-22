@@ -26,7 +26,7 @@ public class SistemCalcul extends EchipamentElectronic {
 
     @Override
     public String toFile() {
-        return "sistem_calcul," + getDenumire() + "," + getNr_inv() + "," + getPret() + "," + getZona_mag() + "," +
-                getSituatie() + "," + tip_mon + "," + vit_proc + "," + c_hdd + "," + so;
+        return getDenumire() + ";" + getNr_inv() + ";" + getPret() + ";" + getZona_mag() + ";" +
+                getSituatie() + ";" + "sistem_calcul" + ";" + tip_mon + ";" + vit_proc + ";" + c_hdd + ";" + so;
     }
 }

@@ -80,11 +80,31 @@ public class MainApp {
         }
     }
 
+    public static void setareScriereImprimanta(List<EchipamentElectronic> electronics, String nrInventar, ModTiparire modTiparire) {
+        boolean gasit = false;
+
+        for (EchipamentElectronic e : electronics) {
+            if (e.getNr_inv().equals(nrInventar) && e instanceof Imprimanta ip) {
+                gasit = true;
+                ip.setModTiparire(modTiparire);
+            }
+        }
+        if(!gasit){
+            System.out.println("Nu exista");
+        }
+    }
+
+    public static void printareItemsVandute(List<EchipamentElectronic> electronics){
+        for (EchipamentElectronic e : electronics){
+            if (e.getSituatie() == Situatie.VANDUT)
+                System.out.println(e);
+        }
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<EchipamentElectronic> electronice = new ArrayList<>();
         String linie;
-        String date_in = "src/ex1/electronice.txt";
+        String date_in = "src/ex1/electronice2.txt";
         try{
             BufferedReader flux_in = new BufferedReader(new FileReader(date_in));
             while ((linie = flux_in.readLine()) != null)
@@ -92,17 +112,17 @@ public class MainApp {
                 linie = linie.trim();
                 if (linie.isEmpty())
                     continue;
-                String[] date = linie.split(",");
+                String[] date = linie.split(";");
                 if (date.length < 6) {
                     System.err.println("linia este incompleta: " + linie);
                     continue;
                 }
-                String tipEchipament = date[0].trim();
-                String denumire = date[1].trim();
-                String nr_inv = date[2].trim();
-                double pret = Double.parseDouble(date[3].trim());
-                String zona_mag = date[4].trim();
-                Situatie situatie = Situatie.valueOf(date[5].trim().toUpperCase());
+                String tipEchipament = date[5].trim();
+                String denumire = date[0].trim();
+                String nr_inv = date[1].trim();
+                double pret = Double.parseDouble(date[2].trim());
+                String zona_mag = date[3].trim();
+                Situatie situatie = Situatie.valueOf(date[4].trim().toUpperCase());
 
                 EchipamentElectronic echipament = null;
                 switch(tipEchipament.toLowerCase()){
@@ -118,13 +138,13 @@ public class MainApp {
                           //Format: Imprimanta,Denumire,NrInv,Pret,Zona,Situatie,PPM,DPI,PCar,ModTiparire
                         if (date.length == 10){
                             int ppm = Integer.parseInt(date[6].trim());
-                            int dpi = Integer.parseInt(date[7].trim());
+                            String dpi = date[7].trim();
                             int pCar = Integer.parseInt(date[8].trim());
                             ModTiparire modTiparire = ModTiparire.valueOf(date[9].trim().toUpperCase());
                             echipament = new Imprimanta(denumire, nr_inv, pret, zona_mag, situatie, ppm,dpi, pCar, modTiparire);
                         }
                         break;
-                    case "sistem_calcul":
+                    case "sistem de calcul":
                          // Format: SistemCalcul,Denumire,NrInv,Pret,Zona,Situatie,TipMon,VitProc,CHDD,SistemOperare
                         if (date.length == 10){
                             String tipMon = date[6].trim();
@@ -197,11 +217,32 @@ public class MainApp {
                     try {
                         Situatie stareNoua = Situatie.valueOf(stare);
                         modificareStareEchipament(electronice, nrInv, stareNoua);
-                        salvareEchipamente(electronice, date_in);
+                        //salvareEchipamente(electronice, date_in);
                     } catch (IllegalArgumentException ex) {
                         System.out.println("Stare invalida");
                     }
                     break;
+                case 6:
+                    System.out.print("Introduceii numarul de inventar al echipamentului: ");
+                    String nrInv2 = scanner.nextLine();
+
+                    System.out.print("Introduceti noul mod de tiparire (COLOR / ALB_NEGRU): ");
+                    String modPrintare = scanner.nextLine().trim().toUpperCase();
+                    try {
+                        ModTiparire modTiparire = ModTiparire.valueOf(modPrintare);
+                        setareScriereImprimanta(electronice, nrInv2, modTiparire);
+                    } catch (IllegalArgumentException ex) {
+                        System.out.println("Stare invalida");
+                    }
+                    break;
+                case 7:
+                    //idem case 6 dar pt copiatoare
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    System.out.println("Afiseaza item vandute");
+                    printareItemsVandute(electronice);
                 default:
                     System.out.println("Optiune invalida!");
             }
