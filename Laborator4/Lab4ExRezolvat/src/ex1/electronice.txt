@@ -1,0 +1,6 @@
+imprimanta,HP Laserjet M203,INV001,550.99,A1,achizitionat,28,1200,3000,alb_negru
+copiator,Canon IR2006,INV002,1200.00,B2,expus,5000,A4
+sistem_calcul,Lenovo ThinkCentre,INV003,3499.50,C3,expus,LED 24",3.8,1000,Windows
+imprimanta,Epson L3150,INV004,780.00,A1,vandut,15,5760,6500,color
+sistem_calcul,HP Pavilion,INV005,4500.00,C3,achizitionat,IPS 27",4.2,2000,Linux
+copiator,Xerox WorkCentre,INV006,2500.00,B2,achizitionat,10000,A3
