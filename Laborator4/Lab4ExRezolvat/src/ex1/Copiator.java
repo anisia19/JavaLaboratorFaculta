@@ -12,10 +12,21 @@ public class Copiator extends EchipamentElectronic{
     public FormatCopiere getFormatCopiere() {
         return formatCopiere;
     }
+
+    public int getP_ton() {
+        return p_ton;
+    }
     @Override
     public String toString() {
         return "Copiator [" + super.toString() +
                 ", Pagini/Toner: " + p_ton +
                 ", Format: " + formatCopiere + "]";
     }
+
+    @Override
+    public String toFile() {
+        return "copiator," + getDenumire() + "," + getNr_inv() + "," + getPret() + "," + getZona_mag() + "," +
+                getSituatie() + "," + p_ton + "," + formatCopiere;
+    }
+
 }

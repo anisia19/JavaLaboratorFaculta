@@ -1,8 +1,6 @@
 package ex1;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -55,7 +53,32 @@ public class MainApp {
         }
     }
 */
+    public static void modificareStareEchipament(List<EchipamentElectronic> electronics, String nrInventar, Situatie stareNoua) {
+        boolean gasit = false;
+        for (EchipamentElectronic e : electronics) {
+            if (e.getNr_inv().equals(nrInventar)) {
+                e.setSituatie(stareNoua);
+                System.out.println("Starea echipamentului " + nrInventar + " a fost modificata: " + stareNoua);
+                gasit = true;
+            }
+        }
+        if (!gasit) {
+            System.out.println("Echipamentul nu a fost gasit, nr. inventar = " + nrInventar);
+        }
+    }
 
+    public static void salvareEchipamente(List<EchipamentElectronic> electronice, String fisier) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fisier))) {
+            for (EchipamentElectronic e : electronice) {
+                String linie = e.toFile();
+                writer.write(linie);
+                writer.newLine();
+            }
+            System.out.println("Fisierul a fost actualizat cu succes.");
+        } catch (IOException ex) {
+            System.out.println("Eroare la scrierea fisierului: " + ex.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -165,7 +188,19 @@ public class MainApp {
                     afisareTipEchipament(electronice, SistemCalcul.class);
                     break;
                 case 5:
+                    System.out.print("Introduceii numarul de inventar al echipamentului: ");
+                    String nrInv = scanner.nextLine();
 
+                    System.out.print("Introduceti noua stare (ACHIZITIONAT / EXPUS / VANDUT): ");
+                    String stare = scanner.nextLine().trim().toUpperCase();
+
+                    try {
+                        Situatie stareNoua = Situatie.valueOf(stare);
+                        modificareStareEchipament(electronice, nrInv, stareNoua);
+                        salvareEchipamente(electronice, date_in);
+                    } catch (IllegalArgumentException ex) {
+                        System.out.println("Stare invalida");
+                    }
                     break;
                 default:
                     System.out.println("Optiune invalida!");

@@ -19,6 +19,10 @@ public class Imprimanta extends EchipamentElectronic {
     public void setP_car(int p_car) {
         this.p_car = p_car;
     }
+
+    public int pCar() {
+        return p_car;
+    }
     @Override
     public String toString() {
         return "Imprimantă [" + super.toString() +
@@ -26,4 +30,11 @@ public class Imprimanta extends EchipamentElectronic {
                 ", Pagini/Cartuș: " + p_car +
                 ", Tipărire: " + modTiparire + "]";
     }
+
+    @Override
+    public String toFile() {
+        return "imprimanta," + getDenumire() + "," + getNr_inv() + "," + getPret() + "," + getZona_mag() + "," +
+                getSituatie() + "," + ppm + "," + dpi + "," + p_car + "," + modTiparire;
+    }
+
 }

@@ -16,6 +16,7 @@ public class SistemCalcul extends EchipamentElectronic {
     public void setSo(SistemOperare so) {
         this.so = so;
     }
+
     @Override
     public String toString() {
         return "Sistem de Calcul [" + super.toString() +
@@ -23,4 +24,9 @@ public class SistemCalcul extends EchipamentElectronic {
                 ", HDD: " + c_hdd + ", SO: " + so + "]";
     }
 
+    @Override
+    public String toFile() {
+        return "sistem_calcul," + getDenumire() + "," + getNr_inv() + "," + getPret() + "," + getZona_mag() + "," +
+                getSituatie() + "," + tip_mon + "," + vit_proc + "," + c_hdd + "," + so;
+    }
 }
