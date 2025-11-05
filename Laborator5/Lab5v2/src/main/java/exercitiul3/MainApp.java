@@ -28,7 +28,6 @@ public class MainApp {
         }
         return null;
     }
-
     public static void afisarePlaca(Mobilier mob){
         mob.getPlaci().stream().forEach(placa -> {
             System.out.println("Descriere: " + placa.getDescriere());

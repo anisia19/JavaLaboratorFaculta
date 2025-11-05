@@ -1,13 +1,27 @@
 package exercitiul2;
+/**
+ * PerecheNumere este o clasa cu doua numere intregi
+ * @author Anisia
+ * @version 1
+ */
 
 import exemplul1.Persoana;
 
 import java.util.stream.IntStream;
 
 public class PerecheNumere {
+    /**
+     * @param nr1 este primul numar intreg
+     * @param nr2 este al doilea numar intreg
+     */
     private int nr1;
     private int nr2;
 
+    /**
+     * Constructorul clasei PerecheNumere
+     * @param nr1
+     * @param nr2
+     */
     public PerecheNumere(int nr1, int nr2) {
         this.nr1 = nr1;
         this.nr2 = nr2;
@@ -17,10 +31,18 @@ public class PerecheNumere {
 
     }
 
+    /**
+     * Getter care da acces de citire a variabilei membre nr1 care contine primul numar intreg
+     * @return primul numar
+     */
     public int getNr1() {
         return nr1;
     }
 
+    /**
+     * Getter care da acces de citire a variabilei membre nr2 care contine primul numar intreg
+     * @return al doilea numar
+     */
     public int getNr2() {
         return nr2;
     }
@@ -33,6 +55,9 @@ public class PerecheNumere {
         this.nr2 = nr2;
     }
 
+    /**
+     * Override la metoda toString a clasei Object
+     */
     @Override
     public String toString() {
         return "PerecheNumere{" +
@@ -40,6 +65,12 @@ public class PerecheNumere {
                 ", nr2=" + nr2 +
                 '}';
     }
+
+    /**
+     * Metoda verifica daca numerele sunt consecutive in sirul lui fibo
+     * @return true daca numerele apartin sirului lui fibonnaci si sunt consecutive
+     * @return false daca numerele nu apartin sirului lui fibonnaci si nu sunt consecutive
+     */
     public boolean suntConsecutiveFibonnaci(){
         int a = 0;
         int b = 1;
@@ -54,11 +85,15 @@ public class PerecheNumere {
         return false;
     }
 
+    /**
+     * @return cel mai mic multiplu comun dintre doua numere
+     */
     public int celMaiMicMultipluComun(){
         if(nr1 == 0 || nr2 == 0)
             return 0;
         return Math.abs(nr1 * nr2) / cmmdc(nr1, nr2);
     }
+
     private int cmmdc(int a, int b) {
         a = Math.abs(a);
         b = Math.abs(b);
@@ -70,8 +105,8 @@ public class PerecheNumere {
         return a;
     }
 
-    //cod C style :))
-   /* public int sumaCifre(int nr){
+
+    public int sumaCifreC(int nr){
         int suma = 0;
         while (nr != 0){
             suma = suma + nr % 10;
@@ -80,12 +115,20 @@ public class PerecheNumere {
         return suma;
     }
 
-    public boolean sumaCifEgala(int nr1, int nr2){
-      if (sumaCifre(nr1) == sumaCifre(nr2))
-          return true;
-      return false;
-    }*/
+    public boolean sumaCifEgalaC(int nr1, int nr2) {
+        if (sumaCifreC(nr1) == sumaCifreC(nr2))
+            return true;
+        return false;
+    }
 
+    /**
+     * Metoda valueOf() returnează constanta corespunzătoare string-ului specificat ca şi parametru de
+     * intrare dacă aceasta există
+     * Metoda foloseste .chars() pentru a transforma numerele in codul ascii, dupa care mapeaza fiecare caracter ascii cu valoarea numerica corespunzatoare
+     * .sum() aduna valorile numerice
+     * @param nr este numarul al caror cifre le facem suma
+     * @return suma cifrelor unui numar
+     */
     private int sumaCifre(int nr) {
         return String.valueOf(Math.abs(nr))
                 .chars()
@@ -93,10 +136,22 @@ public class PerecheNumere {
                 .sum();
     }
 
+    /**
+     * Metoda verifica daca cele doua numere au suma cifrelor egala
+     * @return
+     */
     public boolean sumaCifEgala() {
         return sumaCifre(nr1) == sumaCifre(nr2);
     }
 
+    /**
+     * Metoda valueOf() returnează constanta corespunzătoare string-ului specificat ca şi parametru de
+     * intrare dacă aceasta există
+     * Metoda foloseste .chars() pentru a transforma numerele in codul ascii, dupa care mapeaza fiecare caracter ascii cu valoarea numerica corespunzatoare
+     * .filter() se foloseste pentru a filtra cifrelor pare dintr-un numar
+     * @param nr este numarul intreg pentru care se executa metoda
+     * @return numarul cifrelor pare dintr-un numar
+     */
     private int cifrePare(int nr) {
         return (int) String.valueOf(Math.abs(nr))
                 .chars()
@@ -105,9 +160,11 @@ public class PerecheNumere {
                 .count();
     }
 
+    /**
+     * @return true daca numerele au acelasi numar de cifre pare
+     * @return false in caz contrar
+     */
     public boolean nrCifrePare() {
         return cifrePare(nr1) == cifrePare(nr2);
     }
-
-
 }

@@ -1,4 +1,4 @@
-﻿package teste;
+package teste;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -29,7 +29,7 @@ public class TestePerecheNumere {
     }
     @Test
     void testNrCifrePare2(){
-        PerecheNumere nrs = new PerecheNumere(1248,862);
+        PerecheNumere nrs = new PerecheNumere(178,862);
         assertFalse(nrs.nrCifrePare());
     }
     @Test

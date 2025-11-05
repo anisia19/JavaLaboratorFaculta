@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainApp {
+    /**
+     * Metoda scrie in fisierul json de iesire
+     * @param lista este lista de numere tip PerecheNumere
+     */
 
     public static void scriere(List<PerecheNumere> lista) {
         try {
@@ -20,6 +24,10 @@ public class MainApp {
         }
     }
 
+    /**
+     * Metoda citeste in fisierul json de intrare
+     * @return null daca fisierul json este gol
+     */
     public static List<PerecheNumere> citire() {
         try {
             File file = new File("src/main/resources/perechi.json");
@@ -34,11 +42,18 @@ public class MainApp {
 
     public static void main(String[] args) {
 
+        /**
+         * Instantiez o lista noua
+         * Adaugam in lista tip PerecheNumere perechi de numere
+         */
         List<PerecheNumere> lista = new ArrayList<>();
         lista.add(new PerecheNumere(5, 8));
         lista.add(new PerecheNumere(10, 20));
         lista.add(new PerecheNumere(246, 864));
 
+        /**
+         * Scriu numerele in lista
+         */
         scriere(lista);
 
         List<PerecheNumere> listaCitita = citire();

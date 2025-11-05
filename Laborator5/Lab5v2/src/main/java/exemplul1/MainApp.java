@@ -5,6 +5,10 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 public class MainApp {
+    /**
+     * @param lista reprezinta lista cu persoane de tip Persoana (cu nume, varsta)
+     * Metoda scriere scrie datele de iesire intr-un fisier json
+     */
     public static void scriere(List<Persoana> lista) {
         try {
             ObjectMapper mapper=new ObjectMapper();
@@ -14,6 +18,11 @@ public class MainApp {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Metoda citire citeste datele de intrare intr-un fisier json
+     * @return null, daca nu s-au putut citi date din
+     */
     public static List<Persoana> citire() {
         try {
             File file=new File("src/main/resources/persoane.json");
