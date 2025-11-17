@@ -142,8 +142,8 @@ public class MainApp {
                     System.out.println("Sunt " + ct + " angajati in timpul verii anul trecut");
 
                     break;
-                case 11:
                   default:
+                      System.out.println("Optiune invalida!");
             }
         }while(optiune != 0);
         scanner.close();
